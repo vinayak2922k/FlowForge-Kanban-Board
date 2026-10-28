@@ -5,9 +5,9 @@
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-6.1.0-646CFF?style=flat&logo=vite)](https://vitejs.dev)
 [![dnd--kit](https://img.shields.io/badge/@dnd--kit-Drag%20&%20Drop-4f46e5?style=flat)](https://dndkit.com)
-[![Deployment](https://img.shields.io/badge/Deployment-Vercel%20Ready-000000?style=flat&logo=vercel)](https://vercel.com)
+[![Deployment](https://img.shields.io/badge/Deployment-Live%20on%20Vercel-000000?style=flat&logo=vercel)](https://flow-forge-kanban-board.vercel.app/)
 
-**Live Demo:** [https://flowforge-kanban.vercel.app](https://flowforge-kanban.vercel.app) *(Update with your production URL after Vercel deployment)*
+**Live Demo:** [https://flow-forge-kanban-board.vercel.app/](https://flow-forge-kanban-board.vercel.app/)
 
 ---
 
