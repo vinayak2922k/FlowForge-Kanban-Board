@@ -75,3 +75,4 @@ export const COLUMNS = [
     badgeText: "#047857"
   }
 ];
+

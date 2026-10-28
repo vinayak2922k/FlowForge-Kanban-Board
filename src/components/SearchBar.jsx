@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, X } from 'lucide-react';
+import { Search, X, Command } from 'lucide-react';
 
 export default function SearchBar({ searchQuery, onSearchChange, onClearSearch }) {
   const handleKeyDown = (e) => {
@@ -14,18 +14,18 @@ export default function SearchBar({ searchQuery, onSearchChange, onClearSearch }
         Search tasks by title or description
       </label>
       <div className="search-input-wrapper">
-        <Search className="search-icon" size={16} aria-hidden="true" />
+        <Search className="search-icon" size={15} aria-hidden="true" />
         <input
           id="global-task-search"
           type="text"
           className="search-input"
-          placeholder="Search tasks, descriptions..."
+          placeholder="Filter sprint tasks..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           onKeyDown={handleKeyDown}
           autoComplete="off"
         />
-        {searchQuery && (
+        {searchQuery ? (
           <button
             type="button"
             className="search-clear-btn"
@@ -33,8 +33,12 @@ export default function SearchBar({ searchQuery, onSearchChange, onClearSearch }
             title="Clear search (Esc)"
             aria-label="Clear search input"
           >
-            <X size={14} />
+            <X size={13} />
           </button>
+        ) : (
+          <div className="search-shortcut-hint" aria-hidden="true">
+            <kbd className="search-kbd">Esc</kbd>
+          </div>
         )}
       </div>
     </div>

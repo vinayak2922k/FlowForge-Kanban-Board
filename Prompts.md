@@ -129,3 +129,4 @@ Tested scenarios:
 5. Dragging cards across columns and reordering inside columns.
 6. Persistent storage surviving hard page reload.
 7. Mobile responsiveness from 390px up to 1440px desktop screen widths.
+

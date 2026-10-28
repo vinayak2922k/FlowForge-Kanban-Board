@@ -47,3 +47,4 @@ export default function EmptyState({ type = 'column', searchQuery = '', onAction
     </div>
   );
 }
+
