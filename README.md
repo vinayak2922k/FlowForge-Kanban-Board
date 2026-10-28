@@ -180,7 +180,7 @@ vercel
 ---
 
 ## 8. License & Authorship
-- **Author:** Vinayak Sharma
+- **Author:** Vinayak Sharma (Associate Software Engineer | Full-Stack Developer)
 - **Course / Track:** Prodesk IT Sprint 05
 - **Project:** FlowForge Task Management Board
 

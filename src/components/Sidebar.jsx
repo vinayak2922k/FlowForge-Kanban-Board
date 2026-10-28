@@ -163,7 +163,7 @@ export default function Sidebar({
             <div className="user-avatar">VS</div>
             <div className="user-details">
               <span className="user-name">Vinayak Sharma</span>
-              <span className="user-role">Developer & Socials ↗</span>
+              <span className="user-role">Associate Software Engineer ↗</span>
             </div>
           </button>
         </div>

@@ -30,7 +30,7 @@ export default function AboutView({ onSwitchToKanban }) {
     location: 'India',
     email: 'vinayaksharma2289@gmail.com',
     github: 'https://github.com/vinayak2922k',
-    linkedin: 'https://www.linkedin.com/in/vinayak-sharma',
+    linkedin: 'https://www.linkedin.com/in/vinayak2922k',
     portfolio: 'https://flow-forge-kanban-board.vercel.app/'
   };
 
