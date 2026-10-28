@@ -6,6 +6,7 @@ import KanbanBoard from './components/KanbanBoard';
 import OverviewView from './components/OverviewView';
 import MyTasksView from './components/MyTasksView';
 import ProjectsView from './components/ProjectsView';
+import AboutView from './components/AboutView';
 import TaskModal from './components/TaskModal';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { INITIAL_TASKS } from './utils/sampleData';
@@ -148,6 +149,12 @@ export default function App() {
                 tasks={tasks}
                 onSwitchToKanban={() => setActiveNav('kanban')}
                 onOpenAddModal={handleOpenAddModal}
+              />
+            )}
+
+            {activeNav === 'about' && (
+              <AboutView
+                onSwitchToKanban={() => setActiveNav('kanban')}
               />
             )}
           </div>

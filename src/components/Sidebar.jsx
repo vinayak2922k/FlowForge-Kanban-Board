@@ -6,7 +6,9 @@ import {
   Layers,
   X,
   RotateCcw,
-  ShieldAlert
+  ShieldAlert,
+  User,
+  Sparkles
 } from 'lucide-react';
 
 export default function Sidebar({
@@ -44,6 +46,12 @@ export default function Sidebar({
       label: 'Projects & Epics',
       icon: Layers,
       badge: '4 Epics'
+    },
+    {
+      id: 'about',
+      label: 'About Developer',
+      icon: User,
+      badge: 'Connect'
     }
   ];
 
@@ -141,15 +149,23 @@ export default function Sidebar({
           </div>
         </nav>
 
-        {/* Sidebar Footer: Profile Section */}
+        {/* Sidebar Footer: Interactive Profile Section */}
         <div className="sidebar-footer">
-          <div className="user-profile">
+          <button
+            type="button"
+            className={`user-profile-btn ${activeNav === 'about' ? 'user-profile-btn-active' : ''}`}
+            onClick={() => {
+              onSelectNav('about');
+              if (window.innerWidth < 1024) onClose();
+            }}
+            title="View Developer Info & Social Handles"
+          >
             <div className="user-avatar">VS</div>
             <div className="user-details">
               <span className="user-name">Vinayak Sharma</span>
-              <span className="user-role">Lead Engineer · Sprint 5</span>
+              <span className="user-role">Developer & Socials ↗</span>
             </div>
-          </div>
+          </button>
         </div>
       </aside>
     </>

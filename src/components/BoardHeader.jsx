@@ -22,6 +22,11 @@ const VIEW_METADATA = {
     breadcrumb: 'Projects & Epics',
     title: 'Projects & Strategic Epics',
     subtitle: 'Track milestone delivery and initiatives across Sprint 05.'
+  },
+  about: {
+    breadcrumb: 'About Developer',
+    title: 'About Vinayak Sharma & FlowForge',
+    subtitle: 'Full-stack engineering details, social links, and contact channels.'
   }
 };
 
