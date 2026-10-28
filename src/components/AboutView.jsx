@@ -25,7 +25,7 @@ export default function AboutView({ onSwitchToKanban }) {
 
   const developerInfo = {
     name: 'Vinayak Sharma',
-    role: 'Lead Full-Stack Developer & UI/UX Engineer',
+    role: 'Associate Software Engineer | Full-Stack Developer',
     education: 'Prodesk IT — Sprint 05 Final Project',
     location: 'India',
     email: 'vinayaksharma2289@gmail.com',
