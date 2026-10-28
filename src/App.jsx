@@ -3,6 +3,9 @@ import Sidebar from './components/Sidebar';
 import BoardHeader from './components/BoardHeader';
 import SummaryStats from './components/SummaryStats';
 import KanbanBoard from './components/KanbanBoard';
+import OverviewView from './components/OverviewView';
+import MyTasksView from './components/MyTasksView';
+import ProjectsView from './components/ProjectsView';
 import TaskModal from './components/TaskModal';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { INITIAL_TASKS } from './utils/sampleData';
@@ -35,7 +38,6 @@ export default function App() {
 
   // Delete a task (P0)
   const handleDeleteTask = (taskId) => {
-    const taskToDelete = tasks.find((t) => t.id === taskId);
     setTasks((prevTasks) => prevTasks.filter((t) => t.id !== taskId));
     showToast(`Task removed from board`, 'info');
   };
@@ -89,11 +91,13 @@ export default function App() {
         onSelectNav={setActiveNav}
         onResetSampleData={handleResetSampleData}
         onClearBoard={handleClearBoard}
+        tasks={tasks}
       />
 
       {/* Main SaaS Workspace */}
       <div className="main-workspace">
         <BoardHeader
+          activeNav={activeNav}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onClearSearch={() => setSearchQuery('')}
@@ -103,20 +107,49 @@ export default function App() {
 
         <main className="workspace-scrollable">
           <div className="workspace-content-container">
-            {/* Real-time Dynamic Statistics */}
+            {/* Real-time Dynamic Statistics (Always visible across all views) */}
             <SummaryStats tasks={tasks} />
 
-            {/* Kanban Columns & DnD Surface */}
-            <KanbanBoard
-              tasks={tasks}
-              setTasks={setTasks}
-              searchQuery={searchQuery}
-              onClearSearch={() => setSearchQuery('')}
-              onDeleteTask={handleDeleteTask}
-              onMoveTask={handleMoveTask}
-              onEditTask={handleEditTask}
-              onOpenAddModal={handleOpenAddModal}
-            />
+            {/* View Switcher */}
+            {activeNav === 'kanban' && (
+              <KanbanBoard
+                tasks={tasks}
+                setTasks={setTasks}
+                searchQuery={searchQuery}
+                onClearSearch={() => setSearchQuery('')}
+                onDeleteTask={handleDeleteTask}
+                onMoveTask={handleMoveTask}
+                onEditTask={handleEditTask}
+                onOpenAddModal={handleOpenAddModal}
+              />
+            )}
+
+            {activeNav === 'overview' && (
+              <OverviewView
+                tasks={tasks}
+                onSwitchToKanban={() => setActiveNav('kanban')}
+                onOpenAddModal={handleOpenAddModal}
+              />
+            )}
+
+            {activeNav === 'mytasks' && (
+              <MyTasksView
+                tasks={tasks}
+                searchQuery={searchQuery}
+                onAddTask={handleAddTask}
+                onEditTask={handleEditTask}
+                onDeleteTask={handleDeleteTask}
+                onMoveTask={handleMoveTask}
+              />
+            )}
+
+            {activeNav === 'projects' && (
+              <ProjectsView
+                tasks={tasks}
+                onSwitchToKanban={() => setActiveNav('kanban')}
+                onOpenAddModal={handleOpenAddModal}
+              />
+            )}
           </div>
         </main>
       </div>
@@ -141,4 +174,3 @@ export default function App() {
     </div>
   );
 }
-

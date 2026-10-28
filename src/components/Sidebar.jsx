@@ -4,11 +4,8 @@ import {
   CheckSquare,
   LayoutDashboard,
   Layers,
-  Settings,
-  HelpCircle,
   X,
   RotateCcw,
-  Sparkles,
   ShieldAlert
 } from 'lucide-react';
 
@@ -18,13 +15,36 @@ export default function Sidebar({
   activeNav = 'kanban',
   onSelectNav,
   onResetSampleData,
-  onClearBoard
+  onClearBoard,
+  tasks = []
 }) {
+  const pendingCount = tasks.filter((t) => t.status !== 'done').length;
+
   const navItems = [
-    { id: 'overview', label: 'Overview', icon: LayoutDashboard, badge: null },
-    { id: 'kanban', label: 'Kanban Board', icon: Kanban, badge: 'Active' },
-    { id: 'mytasks', label: 'My Tasks', icon: CheckSquare, badge: null },
-    { id: 'projects', label: 'Projects & Epics', icon: Layers, badge: null }
+    {
+      id: 'overview',
+      label: 'Overview',
+      icon: LayoutDashboard,
+      badge: 'Live'
+    },
+    {
+      id: 'kanban',
+      label: 'Kanban Board',
+      icon: Kanban,
+      badge: tasks.length > 0 ? `${tasks.length}` : null
+    },
+    {
+      id: 'mytasks',
+      label: 'My Tasks',
+      icon: CheckSquare,
+      badge: pendingCount > 0 ? `${pendingCount}` : null
+    },
+    {
+      id: 'projects',
+      label: 'Projects & Epics',
+      icon: Layers,
+      badge: '4 Epics'
+    }
   ];
 
   return (
@@ -88,7 +108,9 @@ export default function Sidebar({
                     <Icon size={18} className="nav-icon" />
                     <span className="nav-label">{item.label}</span>
                     {item.badge && (
-                      <span className="nav-badge">{item.badge}</span>
+                      <span className={`nav-badge ${isActive ? 'nav-badge-active' : ''}`}>
+                        {item.badge}
+                      </span>
                     )}
                   </button>
                 </li>
@@ -133,4 +155,3 @@ export default function Sidebar({
     </>
   );
 }
-
