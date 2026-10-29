@@ -53,10 +53,10 @@ export default function BoardHeader({
           >
             <Menu size={20} />
           </button>
-          <span className="breadcrumb-item">Workspace</span>
-          <ChevronRight size={14} className="breadcrumb-separator" aria-hidden="true" />
-          <span className="breadcrumb-item">Sprint 05</span>
-          <ChevronRight size={14} className="breadcrumb-separator" aria-hidden="true" />
+          <span className="breadcrumb-item breadcrumb-hide-mobile">Workspace</span>
+          <ChevronRight size={14} className="breadcrumb-separator breadcrumb-hide-mobile" aria-hidden="true" />
+          <span className="breadcrumb-item breadcrumb-hide-mobile">Sprint 05</span>
+          <ChevronRight size={14} className="breadcrumb-separator breadcrumb-hide-mobile" aria-hidden="true" />
           <span className="breadcrumb-item breadcrumb-current">{currentView.breadcrumb}</span>
         </div>
 

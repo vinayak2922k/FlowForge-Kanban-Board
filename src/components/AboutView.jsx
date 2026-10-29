@@ -92,22 +92,31 @@ export default function AboutView({ onSwitchToKanban }) {
             <div className="about-quick-links">
               <button
                 type="button"
-                className="btn btn-primary btn-sm"
+                className="btn btn-primary btn-sm btn-copy-action"
                 onClick={handleCopyEmail}
-                title="Copy email to clipboard"
+                title={`Copy email address: ${developerInfo.email}`}
               >
                 {copiedEmail ? (
                   <>
                     <Check size={14} className="icon-mr" />
-                    Copied Email!
+                    Copied!
                   </>
                 ) : (
                   <>
                     <Copy size={14} className="icon-mr" />
-                    Copy Email ({developerInfo.email})
+                    Copy Email
                   </>
                 )}
               </button>
+
+              <a
+                href={`mailto:${developerInfo.email}?subject=Hello%20Vinayak`}
+                className="btn btn-secondary btn-sm btn-email-pill"
+                title="Send direct email"
+              >
+                <Mail size={14} className="icon-mr" />
+                <span className="email-truncate">{developerInfo.email}</span>
+              </a>
 
               <a
                 href={developerInfo.github}
@@ -115,9 +124,9 @@ export default function AboutView({ onSwitchToKanban }) {
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-sm"
               >
-                <Github size={15} className="icon-mr" />
-                GitHub Profile
-                <ExternalLink size={12} style={{ marginLeft: 6, opacity: 0.7 }} />
+                <Github size={14} className="icon-mr" />
+                GitHub
+                <ExternalLink size={11} style={{ marginLeft: 4, opacity: 0.7 }} />
               </a>
 
               <a
@@ -126,9 +135,9 @@ export default function AboutView({ onSwitchToKanban }) {
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-sm"
               >
-                <Linkedin size={15} className="icon-mr" />
+                <Linkedin size={14} className="icon-mr" />
                 LinkedIn
-                <ExternalLink size={12} style={{ marginLeft: 6, opacity: 0.7 }} />
+                <ExternalLink size={11} style={{ marginLeft: 4, opacity: 0.7 }} />
               </a>
             </div>
           </div>
